@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="title">
+  <title id="title">Publication thumbnail placeholder</title>
+  <rect width="200" height="200" fill="#f2f2f0"/>
+  <rect x="4" y="4" width="192" height="192" fill="none" stroke="#c9c9c5" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="100" y="105" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#8a8a86">figure</text>
+  <text x="100" y="125" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#8a8a86">placeholder</text>
+</svg>

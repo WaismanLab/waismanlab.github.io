@@ -1,0 +1,279 @@
+// --- Header / nav ---
+.site-header {
+  border-bottom: 1px solid $color-border;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: $space-sm;
+  padding-bottom: $space-sm;
+}
+
+.site-header__brand {
+  text-decoration: none;
+}
+
+.site-header__name {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: $color-text;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid $color-border;
+  padding: $space-xs $space-sm;
+  font: inherit;
+  color: $color-text;
+  cursor: pointer;
+}
+
+.site-nav ul {
+  display: flex;
+  gap: $space-md;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: $color-text;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+
+  &:hover,
+  &[aria-current="page"] {
+    border-bottom-color: $color-text;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .site-nav {
+    display: none;
+    width: 100%;
+  }
+
+  .site-nav.is-open {
+    display: block;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: $space-sm 0;
+  }
+
+  .site-nav a {
+    display: block;
+    padding: $space-xs 0;
+  }
+}
+
+// --- Hero ---
+.hero {
+  margin-bottom: $space-lg;
+}
+
+.hero__image-wrap {
+  width: 100%;
+  max-height: 60vh;
+  overflow: hidden;
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__text {
+  padding-top: $space-md;
+}
+
+.hero__tagline {
+  font-size: 1.25rem;
+  color: $color-text-muted;
+  max-width: $measure;
+}
+
+.hero__intro {
+  max-width: $measure;
+}
+
+// --- Research cards (home + research page) ---
+.research-card__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.research-card__body {
+  padding-top: $space-sm;
+}
+
+.research-card__title a {
+  text-decoration: none;
+}
+
+// --- Research page full sections ---
+.research-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-lg;
+  align-items: start;
+}
+
+.research-section__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.research-section__subthemes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-xs;
+  margin: $space-sm 0;
+
+  li {
+    border: 1px solid $color-border;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    color: $color-text-muted;
+  }
+}
+
+.research-section__publications {
+  margin-top: $space-md;
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .research-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+// --- People ---
+.person-card__photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin-bottom: $space-xs;
+}
+
+.person-card__name {
+  margin-bottom: 0.125rem;
+}
+
+.person-card__role {
+  color: $color-text-muted;
+  margin-bottom: $space-xs;
+}
+
+.person-card--pi .person-card__name::after {
+  content: " · PI";
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: $color-text-muted;
+}
+
+.person-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-sm;
+
+  a {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    font-size: 0.875rem;
+  }
+}
+
+// --- Publications ---
+.publication-entry {
+  display: flex;
+  gap: $space-md;
+  padding: $space-sm 0;
+  border-top: 1px solid $color-border;
+
+  &:first-of-type {
+    border-top: none;
+  }
+}
+
+.publication-entry__thumb {
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.publication-entry__meta {
+  color: $color-text-muted;
+}
+
+.publication-entry__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-sm;
+
+  a {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    font-size: 0.875rem;
+  }
+}
+
+// --- Institutions ---
+.institutions-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-md;
+  padding: $space-md 0;
+}
+
+.institution-badge {
+  display: flex;
+  align-items: center;
+  gap: $space-xs;
+  border: 1px solid $color-border;
+  padding: $space-xs $space-sm;
+}
+
+.institution-badge__logo {
+  width: 1.75rem;
+  height: 1.75rem;
+  object-fit: contain;
+}
+
+.institution-badge__name {
+  font-size: 0.875rem;
+  color: $color-text-muted;
+}
+
+// --- Footer ---
+.site-footer {
+  border-top: 1px solid $color-border;
+  margin-top: $space-xl;
+  padding-bottom: $space-lg;
+}
+
+.site-footer__meta p {
+  margin: 0 0 $space-xs;
+  color: $color-text-muted;
+  font-size: 0.9375rem;
+}
+
+.site-footer__lab strong {
+  color: $color-text;
+}
+
+// --- Contact list (About page) ---
+.contact-list li {
+  margin-bottom: $space-xs;
+}

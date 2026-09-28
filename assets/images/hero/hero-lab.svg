@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Hero image placeholder</title>
+  <desc id="desc">Replace assets/images/hero/hero-lab.jpg with a lab microscopy image</desc>
+  <rect width="1600" height="900" fill="#f2f2f0"/>
+  <rect x="8" y="8" width="1584" height="884" fill="none" stroke="#c9c9c5" stroke-width="4" stroke-dasharray="16 12"/>
+  <circle cx="800" cy="380" r="140" fill="none" stroke="#b7b7b2" stroke-width="3"/>
+  <circle cx="800" cy="380" r="70" fill="none" stroke="#b7b7b2" stroke-width="3"/>
+  <text x="800" y="560" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#6b6b6b">REPLACE ME</text>
+  <text x="800" y="605" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#8a8a86">assets/images/hero/hero-lab.jpg</text>
+  <text x="800" y="645" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#a3a39f">Lab hero / microscopy image</text>
+</svg>

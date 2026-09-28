@@ -1,0 +1,8 @@
+<div class="institutions-grid">
+  {% for inst in site.data.institutions %}
+  <div class="institution-badge">
+    <img class="institution-badge__logo" src="{{ inst.logo | relative_url }}" alt="{{ inst.name }} logo placeholder" loading="lazy">
+    <span class="institution-badge__name">{{ inst.name }}</span>
+  </div>
+  {% endfor %}
+</div>

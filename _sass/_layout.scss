@@ -1,0 +1,37 @@
+.section {
+  padding: $space-lg 0;
+  border-top: 1px solid $color-border;
+}
+
+.section__heading {
+  margin-bottom: $space-md;
+}
+
+.page {
+  padding: $space-lg 0;
+}
+
+.page__header {
+  margin-bottom: $space-md;
+}
+
+.research-themes__grid,
+.people-grid,
+.people-preview__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-md;
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .research-themes__grid,
+  .people-grid,
+  .people-preview__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section,
+  .page {
+    padding: $space-md 0;
+  }
+}

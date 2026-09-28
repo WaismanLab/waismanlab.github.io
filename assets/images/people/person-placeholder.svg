@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="title desc">
+  <title id="title">Portrait placeholder</title>
+  <desc id="desc">Replace with a photo in assets/images/people/</desc>
+  <rect width="400" height="400" fill="#f2f2f0"/>
+  <rect x="5" y="5" width="390" height="390" fill="none" stroke="#c9c9c5" stroke-width="3" stroke-dasharray="12 10"/>
+  <circle cx="200" cy="160" r="65" fill="none" stroke="#b7b7b2" stroke-width="3"/>
+  <path d="M90 340 Q200 240 310 340" fill="none" stroke="#b7b7b2" stroke-width="3"/>
+  <text x="200" y="378" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#8a8a86">photo placeholder</text>
+</svg>

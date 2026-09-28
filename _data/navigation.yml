@@ -1,0 +1,13 @@
+# Top-level site navigation. Order here is the order shown in the header.
+- title: Home
+  url: /
+- title: Research
+  url: /research/
+- title: People
+  url: /people/
+- title: Publications
+  url: /publications/
+- title: Resources
+  url: /resources/
+- title: About
+  url: /about/

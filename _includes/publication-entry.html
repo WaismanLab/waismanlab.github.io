@@ -1,0 +1,30 @@
+{% comment %}
+  Reusable publication entry. Param: pub (one document from site.publications).
+{% endcomment %}
+{% assign pub = include.pub %}
+
+<article class="publication-entry">
+  {% if pub.image %}
+  <img class="publication-entry__thumb" src="{{ pub.image | relative_url }}" alt="" loading="lazy">
+  {% endif %}
+  <div class="publication-entry__body">
+    <h3 class="publication-entry__title">{{ pub.title }}</h3>
+    <p class="publication-entry__meta">
+      {% if pub.authors %}{{ pub.authors }}{% endif %}
+      {% if pub.journal %} — <em>{{ pub.journal }}</em>{% endif %}
+      {% if pub.year %} ({{ pub.year }}){% endif %}
+    </p>
+
+    {% if pub.description %}
+    <p class="publication-entry__description">{{ pub.description }}</p>
+    {% endif %}
+
+    <ul class="publication-entry__links">
+      {% if pub.doi %}<li><a href="{{ pub.doi }}" target="_blank" rel="noopener">DOI</a></li>{% endif %}
+      {% if pub.pubmed %}<li><a href="{{ pub.pubmed }}" target="_blank" rel="noopener">PubMed</a></li>{% endif %}
+      {% if pub.preprint %}<li><a href="{{ pub.preprint }}" target="_blank" rel="noopener">Preprint</a></li>{% endif %}
+      {% if pub.code %}<li><a href="{{ pub.code }}" target="_blank" rel="noopener">Code</a></li>{% endif %}
+      {% if pub.data %}<li><a href="{{ pub.data }}" target="_blank" rel="noopener">Data</a></li>{% endif %}
+    </ul>
+  </div>
+</article>

@@ -1,0 +1,43 @@
+title: Waisman Lab
+tagline: >-
+  Human pluripotent stem cells to study cardiac differentiation and
+  maturation, and to model regeneration.
+description: >-
+  Waisman Lab is an early-career research group studying human pluripotent
+  stem cell-derived cardiomyocytes, focused on cardiomyocyte maturation and
+  cardiomyocyte proliferation / cardiac regeneration.
+
+url: "https://waismanlab.github.io"
+baseurl: ""
+
+# --- Lab / contact information (edit here, used across the site) ---
+pi_name: "[PI Name]"
+contact_email: "[email protected]"
+location: "Buenos Aires, Argentina"
+github_org_url: "https://github.com/WaismanLab"
+google_scholar_url: ""
+
+# --- Build settings ---
+# Explicitly disable GitHub Pages' default "jekyll-theme-primer" theme —
+# without this, github-pages silently injects its own layouts/assets.
+theme: null
+markdown: kramdown
+sass:
+  style: compressed
+
+collections:
+  people:
+    output: false
+  publications:
+    output: false
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - node_modules

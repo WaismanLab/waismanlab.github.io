@@ -1,0 +1,22 @@
+<footer class="site-footer">
+  <div class="container">
+    {% include institutions-grid.html %}
+
+    <div class="site-footer__meta">
+      <p class="site-footer__lab">
+        <strong>{{ site.title }}</strong><br>
+        {% assign inst_names = site.data.institutions | map: "name" %}
+        {{ inst_names | join: " · " }}<br>
+        {{ site.location }}
+      </p>
+
+      <p class="site-footer__contact">
+        <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>
+      </p>
+
+      <p class="site-footer__links">
+        <a href="{{ site.github_org_url }}" target="_blank" rel="noopener">GitHub ↗</a>
+      </p>
+    </div>
+  </div>
+</footer>
