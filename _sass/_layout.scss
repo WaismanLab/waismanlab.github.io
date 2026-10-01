@@ -15,18 +15,24 @@
   margin-bottom: $space-md;
 }
 
-.research-themes__grid,
-.people-grid,
-.people-preview__grid {
+.research-themes__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: $space-md;
 }
 
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-md;
+}
+
 @media (max-width: $breakpoint-mobile) {
-  .research-themes__grid,
-  .people-grid,
-  .people-preview__grid {
+  .research-themes__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .people-grid {
     grid-template-columns: 1fr;
   }
 

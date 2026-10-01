@@ -81,7 +81,9 @@
 
 .hero__image-wrap {
   width: 100%;
-  max-height: 60vh;
+  height: 60vh;
+  min-height: 320px;
+  max-height: 640px;
   overflow: hidden;
 }
 
@@ -158,12 +160,78 @@
   }
 }
 
+// --- Profile page (e.g. PI CV) ---
+.profile-header {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-lg;
+  margin-bottom: $space-lg;
+  padding-bottom: $space-lg;
+  border-bottom: 1px solid $color-border;
+}
+
+.profile-header__photo {
+  width: 12rem;
+  height: 12rem;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid $color-border;
+}
+
+.profile-header__name {
+  margin-bottom: 0.25rem;
+}
+
+.profile-header__role {
+  color: $color-text-muted;
+  font-size: 1.125rem;
+  margin-bottom: $space-sm;
+}
+
+.profile-header__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-sm;
+
+  a {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    font-size: 0.9375rem;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: $space-sm;
+  }
+
+  .profile-header__photo {
+    width: 9rem;
+    height: 9rem;
+  }
+
+  .profile-header__links {
+    justify-content: center;
+  }
+}
+
 // --- People ---
 .person-card__photo {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   margin-bottom: $space-xs;
+}
+
+.person-card__photo-link {
+  display: block;
+
+  &:hover .person-card__photo {
+    opacity: 0.85;
+  }
 }
 
 .person-card__name {
@@ -173,6 +241,15 @@
 .person-card__role {
   color: $color-text-muted;
   margin-bottom: $space-xs;
+}
+
+.person-card__name a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
 }
 
 .person-card--pi .person-card__name::after {
@@ -191,6 +268,34 @@
     text-decoration: underline;
     text-underline-offset: 0.2em;
     font-size: 0.875rem;
+  }
+}
+
+// --- Team photos ---
+.team-photos__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-md;
+}
+
+.team-photos__item {
+  margin: 0;
+
+  img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
+
+  figcaption {
+    margin-top: $space-xs;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .team-photos__grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -226,6 +331,42 @@
     text-decoration: underline;
     text-underline-offset: 0.2em;
     font-size: 0.875rem;
+  }
+}
+
+// --- News ---
+.news-entry {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: $space-md;
+  padding: $space-sm 0;
+  border-top: 1px solid $color-border;
+
+  &:first-of-type {
+    border-top: none;
+  }
+}
+
+.news-entry__date {
+  color: $color-text-muted;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.news-entry__category {
+  display: inline-block;
+  border: 1px solid $color-border;
+  font-size: 0.75rem;
+  color: $color-text-muted;
+  padding: 0.125rem 0.5rem;
+  margin-right: $space-xs;
+  vertical-align: middle;
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .news-entry {
+    grid-template-columns: 1fr;
+    gap: $space-xs;
   }
 }
 

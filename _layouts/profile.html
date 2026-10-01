@@ -1,0 +1,28 @@
+---
+layout: default
+---
+{% assign person = site.people | where: "profile_url", page.url | first %}
+
+<article class="page container profile-page">
+  <header class="profile-header">
+    {% if person.photo %}
+    <img class="profile-header__photo" src="{{ person.photo | relative_url }}" alt="{{ person.name }}" loading="lazy">
+    {% endif %}
+    <div class="profile-header__text">
+      <h1 class="profile-header__name">{{ person.name | default: page.title }}</h1>
+      {% if person.role %}<p class="profile-header__role">{{ person.role }}</p>{% endif %}
+
+      <ul class="profile-header__links">
+        {% if person.email %}<li><a href="mailto:{{ person.email }}">Email</a></li>{% endif %}
+        {% if person.orcid %}<li><a href="{{ person.orcid }}" target="_blank" rel="noopener">ORCID</a></li>{% endif %}
+        {% if person.scholar %}<li><a href="{{ person.scholar }}" target="_blank" rel="noopener">Scholar</a></li>{% endif %}
+        {% if person.linkedin %}<li><a href="{{ person.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></li>{% endif %}
+        {% if person.github %}<li><a href="{{ person.github }}" target="_blank" rel="noopener">GitHub</a></li>{% endif %}
+      </ul>
+    </div>
+  </header>
+
+  <div class="page__content">
+    {{ content }}
+  </div>
+</article>

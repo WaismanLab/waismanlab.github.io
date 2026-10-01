@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<article class="page container">
+  <header class="page__header">
+    <h1>{{ page.title }}</h1>
+  </header>
+
+  {% assign news_items = site.news | sort: "date" | reverse %}
+
+  <div class="news-list">
+    {% for item in news_items %}
+      {% include news-entry.html item=item %}
+    {% endfor %}
+  </div>
+</article>

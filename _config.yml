@@ -30,6 +30,8 @@ collections:
     output: false
   publications:
     output: false
+  news:
+    output: false
 
 plugins:
   - jekyll-seo-tag

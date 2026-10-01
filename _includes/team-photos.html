@@ -1,0 +1,15 @@
+{% if site.data.team_photos.size > 0 %}
+<section class="section team-photos">
+  <div class="container">
+    <h2 class="section__heading">Team Photos</h2>
+    <div class="team-photos__grid">
+      {% for photo in site.data.team_photos %}
+      <figure class="team-photos__item">
+        <img src="{{ photo.image | relative_url }}" alt="{{ photo.caption | strip_html | default: 'Waisman Lab team photo' }}" loading="lazy">
+        {% if photo.caption %}<figcaption class="provisional-note">{{ photo.caption }}</figcaption>{% endif %}
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

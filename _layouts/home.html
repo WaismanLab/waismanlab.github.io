@@ -13,29 +13,3 @@ layout: default
     </div>
   </div>
 </section>
-
-<section class="section selected-research">
-  <div class="container">
-    <h2 class="section__heading">Selected Research</h2>
-    {% assign lab_pubs = site.publications | where: "category", "waisman-lab" %}
-    {% if lab_pubs.size > 0 %}
-      {% assign featured = lab_pubs | first %}
-      {% include publication-entry.html pub=featured %}
-    {% else %}
-      <p class="provisional-note">[PLACEHOLDER] Waisman Lab's first preprint/publication will appear here.</p>
-    {% endif %}
-    <a class="text-link" href="{{ '/publications/' | relative_url }}">All publications →</a>
-  </div>
-</section>
-
-<section class="section people-preview">
-  <div class="container">
-    <h2 class="section__heading">The Team</h2>
-    <div class="people-preview__grid">
-      {% for person in site.people %}
-        {% include person-card.html person=person %}
-      {% endfor %}
-    </div>
-    <a class="text-link" href="{{ '/people/' | relative_url }}">Meet the team →</a>
-  </div>
-</section>

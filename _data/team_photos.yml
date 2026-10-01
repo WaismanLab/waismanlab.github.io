@@ -1,0 +1,6 @@
+# Group/team photos shown at the bottom of /people/, below individual
+# member cards. Add or remove entries freely — no HTML editing required.
+- image: /assets/images/people/group/group-photo-1.svg
+  caption: "[PLACEHOLDER] Caption for this photo"
+- image: /assets/images/people/group/group-photo-2.svg
+  caption: "[PLACEHOLDER] Caption for this photo"

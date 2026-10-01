@@ -1,0 +1,20 @@
+{% comment %}
+  Reusable news item. Param: item (one document from site.news).
+{% endcomment %}
+{% assign item = include.item %}
+
+<article class="news-entry">
+  <p class="news-entry__date">{{ item.date | date: "%B %-d, %Y" }}</p>
+  <div class="news-entry__body">
+    <h3 class="news-entry__title">
+      {% if item.category %}<span class="news-entry__category">{{ item.category }}</span>{% endif %}
+      {{ item.title }}
+    </h3>
+    {% if item.description %}
+    <p class="news-entry__description">{{ item.description }}</p>
+    {% endif %}
+    {% if item.link %}
+    <a class="text-link" href="{{ item.link }}" target="_blank" rel="noopener">{{ item.link_label | default: "Read more →" }}</a>
+    {% endif %}
+  </div>
+</article>
