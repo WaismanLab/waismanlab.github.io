@@ -1,0 +1,33 @@
+---
+layout: default
+---
+<article class="page container news-item">
+  <header class="page__header news-item__header">
+    <p class="news-entry__date">{{ page.date | date: "%B %-d, %Y" }}</p>
+    <h1>
+      {% if page.category %}<span class="news-entry__category">{{ page.category }}</span>{% endif %}
+      {{ page.title }}
+    </h1>
+  </header>
+
+  {% assign item_image = page.image | default: '/assets/images/news/news-placeholder.svg' | relative_url %}
+  <div class="news-item__body">
+    <a class="news-item__image-link" href="{{ item_image }}" target="_blank" rel="noopener">
+      <img class="news-item__image" src="{{ item_image }}" alt="{{ page.title }}" loading="lazy">
+      <span class="news-item__image-caption">Click to enlarge</span>
+    </a>
+
+    {% if page.description %}
+    <p class="news-item__description">{{ page.description }}</p>
+    {% endif %}
+    {% if page.link %}
+    <a class="text-link" href="{{ page.link }}" target="_blank" rel="noopener">{{ page.link_label | default: "Read more →" }}</a>
+    {% endif %}
+
+    <div class="page__content">
+      {{ content }}
+    </div>
+  </div>
+
+  <a class="text-link" href="{{ '/news/' | relative_url }}">← Back to News</a>
+</article>

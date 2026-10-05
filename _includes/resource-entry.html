@@ -1,0 +1,19 @@
+{% comment %}
+  Reusable resource entry. Param: res (one document from site.resources).
+{% endcomment %}
+{% assign res = include.res %}
+
+<article class="resource-entry">
+  <h3 class="resource-entry__title">
+    {% if res.category %}<span class="resource-entry__category">{{ res.category }}</span>{% endif %}
+    {{ res.title }}
+  </h3>
+
+  {% if res.description %}
+  <p class="resource-entry__description">{{ res.description }}</p>
+  {% endif %}
+
+  {% if res.link %}
+  <a class="text-link" href="{{ res.link }}" target="_blank" rel="noopener">{{ res.link_label | default: "View →" }}</a>
+  {% endif %}
+</article>

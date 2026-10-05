@@ -1,0 +1,31 @@
+---
+layout: default
+---
+{% comment %}
+  Every file in _people/ is rendered with this layout (collection output
+  is all-or-nothing in Jekyll), but it's only linked from person-card.html
+  when that person's front matter has `has_profile: true`.
+{% endcomment %}
+<article class="page container profile-page">
+  <header class="profile-header">
+    <img class="profile-header__photo" src="{{ page.photo | default: '/assets/images/people/person-placeholder.svg' | relative_url }}" alt="{{ page.name }}" loading="lazy">
+    <div class="profile-header__text">
+      <h1 class="profile-header__name">{{ page.name }}</h1>
+      {% if page.role %}<p class="profile-header__role">{{ page.role }}</p>{% endif %}
+
+      <ul class="profile-header__links">
+        {% if page.email %}<li><a href="mailto:{{ page.email }}">Email</a></li>{% endif %}
+        {% if page.orcid %}<li><a href="{{ page.orcid }}" target="_blank" rel="noopener">ORCID</a></li>{% endif %}
+        {% if page.scholar %}<li><a href="{{ page.scholar }}" target="_blank" rel="noopener">Scholar</a></li>{% endif %}
+        {% if page.linkedin %}<li><a href="{{ page.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></li>{% endif %}
+        {% if page.github %}<li><a href="{{ page.github }}" target="_blank" rel="noopener">GitHub</a></li>{% endif %}
+      </ul>
+    </div>
+  </header>
+
+  <div class="page__content">
+    {{ content }}
+  </div>
+
+  <a class="text-link" href="{{ '/people/' | relative_url }}">← Back to People</a>
+</article>

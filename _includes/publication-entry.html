@@ -11,8 +11,9 @@
     <h3 class="publication-entry__title">{{ pub.title }}</h3>
     <p class="publication-entry__meta">
       {% if pub.authors %}{{ pub.authors }}{% endif %}
-      {% if pub.journal %} — <em>{{ pub.journal }}</em>{% endif %}
-      {% if pub.year %} ({{ pub.year }}){% endif %}
+      {% if pub.journal %} — <strong><em>{{ pub.journal }}</em></strong>{% endif %}
+      {% if pub.year %} <strong>({{ pub.year }})</strong>{% endif %}
+      {% if pub.doi %} <a href="{{ pub.doi }}" target="_blank" rel="noopener">{{ pub.doi }}</a>{% endif %}
     </p>
 
     {% if pub.description %}
@@ -20,7 +21,6 @@
     {% endif %}
 
     <ul class="publication-entry__links">
-      {% if pub.doi %}<li><a href="{{ pub.doi }}" target="_blank" rel="noopener">DOI</a></li>{% endif %}
       {% if pub.pubmed %}<li><a href="{{ pub.pubmed }}" target="_blank" rel="noopener">PubMed</a></li>{% endif %}
       {% if pub.preprint %}<li><a href="{{ pub.preprint }}" target="_blank" rel="noopener">Preprint</a></li>{% endif %}
       {% if pub.code %}<li><a href="{{ pub.code }}" target="_blank" rel="noopener">Code</a></li>{% endif %}

@@ -1,16 +1,16 @@
 # Institutional affiliations. `logo` points at a placeholder box until real
 # logo files are supplied (see README for how to replace them).
 - name: FLENI
-  full_name: "[PLACEHOLDER] Fundación para la Lucha contra las Enfermedades Neurológicas de la Infancia"
+  full_name: "Fundación para la Lucha contra las Enfermedades Neurológicas de la Infancia"
   url: ""
-  logo: /assets/images/institutions/fleni-logo-placeholder.svg
+  logo: /assets/images/institutions/Fleni-Logo.jpg
 
-- name: INEU
-  full_name: "[PLACEHOLDER] Instituto de Neurociencias"
-  url: ""
-  logo: /assets/images/institutions/ineu-logo-placeholder.svg
+#- name: INEU
+#  full_name: "Instituto de Neurociencias"
+#  url: ""
+#  logo: /assets/images/institutions/ineu-logo-placeholder.svg
 
 - name: CONICET
-  full_name: "[PLACEHOLDER] Consejo Nacional de Investigaciones Científicas y Técnicas"
+  full_name: "Consejo Nacional de Investigaciones Científicas y Técnicas"
   url: ""
-  logo: /assets/images/institutions/conicet-logo-placeholder.svg
+  logo: /assets/images/institutions/Logo-CONICET.png

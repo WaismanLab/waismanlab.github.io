@@ -1,10 +1,8 @@
 ---
-layout: page
+layout: resources
 title: Resources
 permalink: /resources/
 ---
-
-<p class="provisional-note">
-[PLACEHOLDER] Software, protocols, analysis tools and other resources
-developed by the Waisman Lab will be made available here.
-</p>
+<!-- This page has no content of its own — its layout (_layouts/resources.html)
+     lists every file in _resources/. To add/edit a resource, edit files
+     there, not this one. -->

@@ -96,14 +96,27 @@ a broken link, so delete unused lines rather than blanking them.
 the Alumni section on `/people/` (it only appears once someone has that
 status).
 
-**Giving someone a detailed profile page** (currently used for the PI's
-CV): add `profile_url: /people/pi/` (or any path you choose) to that
-person's front matter — their name on `/people/` automatically becomes a
-link, and a "Full CV →" link appears in their card. The page itself is a
-normal top-level Markdown file (see [`pi.md`](pi.md)) using `layout: page`,
-so its body is just Markdown headings/paragraphs. To add a similar page for
-someone else, copy `pi.md` to a new file with its own `permalink:`, then
-point that person's `profile_url` at it.
+**Giving someone a detailed page** (currently used for the PI's CV): this
+works exactly like adding a news item (see §6) — write the extra content
+directly in the body of that person's own file, below the closing `---`,
+and add `has_profile: true` to their front matter. Their name *and* photo
+on `/people/` automatically become a link to `/people/<filename-slug>/`,
+and a "Read more →" link appears in their card. See
+[`_people/Waisman.md`](_people/Waisman.md) for a working example (the PI's
+CV).
+
+There's no separate file to create or link up — `has_profile: true` is
+what turns a person "on" as clickable; without it, the body of the file is
+simply ignored and the card renders as a plain, non-clickable card (so you
+can draft bio text without publishing it, by leaving `has_profile` out
+until it's ready). As with news items, use a lowercase-hyphenated filename
+so the generated URL looks clean.
+
+(Technical note, not something you need to manage: every person's file
+does generate a page at `/people/<slug>/`, even without `has_profile` — it
+just won't be linked from anywhere, and shows nothing but their photo/name/
+role if visited directly. Harmless, since that's the same info already on
+their card.)
 
 **Team photos**: below the individual cards, `/people/` also shows a small
 grid of group photos, driven by [`_data/team_photos.yml`](_data/team_photos.yml).
@@ -122,6 +135,7 @@ title: "Interview on regional radio about stem cell research"
 category: Interview        # optional, e.g. Award, Interview, Talk, Media
 description: >-
   Optional one or two sentence description.
+image: /assets/images/news/radio-interview.jpg   # optional — see below
 link: "https://..."        # optional
 link_label: "Read the interview →"   # optional, defaults to "Read more →"
 ---
@@ -131,6 +145,29 @@ Items are sorted newest-first automatically by `date` — no need to keep
 files in order yourself. Only include `link`/`link_label` if you have
 somewhere to point to.
 
+**Every news item shows an image** — a small square thumbnail on the right
+of its row on `/news/` (object-fit crops it to a square), and a wide 2:1
+banner at the top of its own page. Set `image:` to a file under
+`assets/images/news/` to use your own; leave it out and a labeled
+placeholder (`assets/images/news/news-placeholder.svg`) is used
+automatically, so you never end up with a broken image. A wide landscape
+photo around 1600×800px or larger crops well into both shapes.
+
+**Each news item also gets its own page** — there's no separate file for
+it, it's the *same* file in `_news/`. The page lives at
+`/news/<filename-slug>/`, linked automatically from its title on `/news/`.
+It shows the front matter (date, category, title, description, the
+optional external `link`) plus — below it — whatever you write in the body
+of the file, after the closing `---`. That's where you can add a longer
+write-up, embed
+images (`![caption](/assets/images/news/your-image.jpg)`), etc. The
+front-matter `description`/`link` are for the short summary on the list
+page; the body is for the expanded version on the item's own page.
+
+Use lowercase, hyphenated filenames (e.g. `2027-03-radio-interview.md`) —
+the URL slug is generated from the filename, so spaces or mixed case in it
+will carry through into an untidy URL.
+
 ## 7. Adding a publication
 
 Each publication is one file in [`_publications/`](_publications). Copy an
@@ -139,8 +176,6 @@ existing file and edit the front matter:
 ```yaml
 ---
 category: waisman-lab        # or "previous-research"
-research_area: maturation    # optional: "maturation" or "regeneration" —
-                              # links it under that section on /research/
 order: 2
 title: "Paper title"
 authors: "Doe J, Roe R, et al."
@@ -159,10 +194,42 @@ image: /assets/images/publications/paper-slug.jpg
 
 Again, only include the fields you have — an empty string still renders an
 (empty) link, so omit rather than blank a field. `category` decides which
-section of `/publications/` the entry appears under; `waisman-lab` entries
-also become eligible for the homepage "Selected Research" spot.
+section of `/publications/` the entry appears under.
 
-## 8. Replacing images
+`order` sorts **highest first** within each category — so to add a new
+publication at the top, just give it a number higher than any existing one
+in that category (e.g. the next integer up). No need to renumber the
+others.
+
+**Important:** every entry sorted by `order` needs a *unique* number within
+its group (publications within the same `category`; resources overall).
+Two entries sharing a number don't get a predictable tiebreak — they land
+in whatever arbitrary order Liquid's sort happens to produce, which can
+look "broken" even though nothing's technically wrong. If reordering feels
+like it's not working, check for a duplicate `order` value first.
+
+## 8. Adding a resource
+
+Each resource is one file in [`_resources/`](_resources). Copy an existing
+file and edit the front matter:
+
+```yaml
+---
+order: 2
+title: "Resource name"
+category: Protocol        # optional, e.g. Software, Protocol, Dataset
+description: >-
+  Optional one-sentence description.
+link: "https://..."       # optional
+link_label: "View on GitHub →"   # optional, defaults to "View →"
+---
+```
+
+Same rules as publications: only include fields you have, and `order`
+sorts highest-first (give a new resource a number higher than any existing
+one to put it on top — see the note on unique `order` values above).
+
+## 9. Replacing images
 
 All images live under `assets/images/`, organized by section. Every current
 file is a labeled SVG placeholder — open one in a browser to see exactly
@@ -178,6 +245,7 @@ what it's standing in for.
 | `assets/images/institutions/ineu-logo-placeholder.svg` | INEU logo |
 | `assets/images/institutions/conicet-logo-placeholder.svg` | CONICET logo |
 | `assets/images/publications/publication-placeholder.svg` | Reusable publication thumbnail |
+| `assets/images/news/news-placeholder.svg` | Default news item image (or add a per-item photo and set `image:` in that item's file) |
 
 Easiest approach: add your real `.jpg`/`.png` file into the same folder,
 then update the relevant path in `_data/research.yml`, `_data/institutions.yml`,
@@ -207,12 +275,12 @@ off-center subject can get clipped differently on desktop vs. mobile).
 Keep exported file sizes reasonable for page speed — JPEG quality ~75–85%,
 aiming for under ~400–500KB per photo.
 
-## 9. Editing navigation
+## 10. Editing navigation
 
 Top nav links live in [`_data/navigation.yml`](_data/navigation.yml) — add,
 remove, or reorder entries there. No HTML editing required.
 
-## 10. Institutional / contact information
+## 11. Institutional / contact information
 
 - Institution names + logos: [`_data/institutions.yml`](_data/institutions.yml)
   (used in the homepage footer and the About page).
@@ -224,12 +292,15 @@ remove, or reorder entries there. No HTML editing required.
 ```
 _config.yml           Site metadata + contact info
 _data/                navigation.yml, research.yml, institutions.yml, team_photos.yml
-_people/              One file per lab member (collection, output: false)
+_people/              One file per lab member — also its own page if `has_profile: true`
+                       (collection, output: true)
 _publications/        One file per publication (collection, output: false)
-_news/                One file per news item (collection, output: false)
-pi.md                  Standalone detailed profile page (PI's CV, linked from /people/)
-_layouts/              Page templates (default, home, page, research, people, publications, news)
-_includes/              Reusable components (header, footer, hero, cards, news-entry, team-photos)
+_news/                One file per news item — also its own page (collection, output: true)
+_resources/            One file per resource (collection, output: false)
+_layouts/              Page templates (default, home, page, research, people, person,
+                       publications, news, news-item, resources)
+_includes/              Reusable components (header, footer, hero, cards, news-entry,
+                       resource-entry, team-photos)
 _sass/, assets/css/    Styling (Sass partials compiled by Jekyll)
 assets/js/main.js       Mobile nav toggle (the only JS on the site)
 assets/images/           Placeholder images, organized by section

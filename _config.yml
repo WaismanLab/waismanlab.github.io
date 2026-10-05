@@ -1,7 +1,16 @@
 title: Waisman Lab
+# Visible on every page: browser tab title and the header brand name.
+
 tagline: >-
   Human pluripotent stem cells to study cardiac differentiation and
-  maturation, and to model regeneration.
+  maturation, and to model regeneration. LALALA
+# Visible on the homepage only, under the title in the hero section.
+
+# NOT shown anywhere on the page itself. Only feeds SEO/social-share
+# metadata (<meta name="description">, Open Graph tags, search engine
+# result snippets) via the {% seo %} tag in _includes/head.html. The
+# paragraph visitors actually read in the hero is separate, hardcoded
+# text in _includes/hero.html — edit that file for the visible intro.
 description: >-
   Waisman Lab is an early-career research group studying human pluripotent
   stem cell-derived cardiomyocytes, focused on cardiomyocyte maturation and
@@ -10,12 +19,13 @@ description: >-
 url: "https://waismanlab.github.io"
 baseurl: ""
 
-# --- Lab / contact information (edit here, used across the site) ---
-pi_name: "[PI Name]"
-contact_email: "[email protected]"
-location: "Buenos Aires, Argentina"
+# --- Lab / contact information (used in the footer, About page, and the
+# Publications page's Scholar link) ---
+pi_name: "Ariel Waisman, PhD"
+contact_email: "awaisman@fleni.org.ar"
+location: "FLENI Escobar - Ruta 9 Km 52.2 (B1625XAF) Belén de Escobar, Buenos Aires, Argentina"
 github_org_url: "https://github.com/WaismanLab"
-google_scholar_url: ""
+google_scholar_url: ""   # Leave blank to hide the Scholar link entirely.
 
 # --- Build settings ---
 # Explicitly disable GitHub Pages' default "jekyll-theme-primer" theme —
@@ -25,13 +35,35 @@ markdown: kramdown
 sass:
   style: compressed
 
+# `output: true` means every file in that folder also gets rendered as its
+# own page (not just listed) — see each collection's section in README.md.
+# `:name` in a permalink becomes the lowercase-hyphenated filename, so a
+# clean filename (e.g. julia-halek.md) makes a clean URL.
 collections:
   people:
-    output: false
+    output: true
+    permalink: /people/:name/
   publications:
     output: false
   news:
+    output: true
+    permalink: /news/:name/
+  resources:
     output: false
+
+# Auto-assigns a layout to every file in these collections, so individual
+# files don't need a "layout:" line of their own.
+defaults:
+  - scope:
+      path: ""
+      type: "people"
+    values:
+      layout: person
+  - scope:
+      path: ""
+      type: "news"
+    values:
+      layout: news-item
 
 plugins:
   - jekyll-seo-tag

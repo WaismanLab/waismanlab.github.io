@@ -1,15 +1,11 @@
 ---
 layout: page
-title: About
+title: About the Lab
 permalink: /about/
 ---
 
-## About the Lab
-
 <p class="provisional-note">
-[PLACEHOLDER] Waisman Lab is an early-career research group based in Buenos
-Aires, Argentina, studying human pluripotent stem cell-derived
-cardiomyocytes. The lab is affiliated with FLENI, INEU, and CONICET.
+The Waisman Lab is an early-career research group established in 2022 at FLENI in Buenos Aires, Argentina. We work with human pluripotent stem cell-derived cardiomyocytes to study heart muscle maturation and regeneration, combining stem cell differentiation, imaging, functional assays, and custom computational analysis. The lab is part of LIAN-FLENI and the Instituto de Neurociencias (INEU), and is supported by CONICET.
 </p>
 
 ## Institutional Affiliations
@@ -19,7 +15,16 @@ cardiomyocytes. The lab is affiliated with FLENI, INEU, and CONICET.
 ## Location
 
 <p>{{ site.location }}</p>
-<p class="provisional-note">[PLACEHOLDER] Map / institutional address to be added later.</p>
+
+<div class="map-embed">
+  <iframe
+    src="https://www.google.com/maps?q=-34.33272440497676,-58.823616794202934&z=16&output=embed"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    allowfullscreen
+    title="Map showing the Waisman Lab location">
+  </iframe>
+</div>
 
 ## Contact
 

@@ -15,6 +15,12 @@
   margin-bottom: $space-md;
 }
 
+// Breathing room above each ## heading within a plain prose page
+// (about.md, resources.md), so headings don't crowd the text above them.
+.page__content h2 {
+  margin-top: $space-lg;
+}
+
 .research-themes__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

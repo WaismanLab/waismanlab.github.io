@@ -5,7 +5,7 @@ layout: default
   <header class="page__header">
     <h1>{{ page.title }}</h1>
     <p class="provisional-note research-page__intro">
-      [PLACEHOLDER] Waisman Lab uses human pluripotent stem cell-derived
+      Waisman Lab uses human pluripotent stem cell-derived
       cardiomyocytes as a model system to ask two connected questions:
       how do these cells mature, and how does maturation relate to their
       ability to proliferate? Cardiac differentiation is the experimental
@@ -26,16 +26,6 @@ layout: default
         <li>{{ sub }}</li>
         {% endfor %}
       </ul>
-      {% endif %}
-
-      {% assign related_pubs = site.publications | where: "research_area", theme.id %}
-      {% if related_pubs.size > 0 %}
-      <div class="research-section__publications">
-        <h3>Related publications</h3>
-        {% for pub in related_pubs %}
-          {% include publication-entry.html pub=pub %}
-        {% endfor %}
-      </div>
       {% endif %}
     </div>
   </section>

@@ -5,4 +5,5 @@ order: 5
 status: current
 photo: /assets/images/people/Agustin.jpg
 bio: >-
+has_profile: false
 ---

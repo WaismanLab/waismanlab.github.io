@@ -9,8 +9,11 @@ layout: default
     {% endif %}
   </header>
 
-  {% assign lab_pubs = site.publications | where: "category", "waisman-lab" | sort: "order" %}
-  {% assign previous_pubs = site.publications | where: "category", "previous-research" | sort: "order" %}
+  {% comment %} Higher "order" = newer = shown first. Give a new
+    publication a number higher than any existing one to put it at the
+    top — no need to renumber everything else. {% endcomment %}
+  {% assign lab_pubs = site.publications | where: "category", "waisman-lab" | sort: "order" | reverse %}
+  {% assign previous_pubs = site.publications | where: "category", "previous-research" | sort: "order" | reverse %}
 
   <section class="section">
     <h2 class="section__heading">From the Waisman Lab</h2>
@@ -26,7 +29,7 @@ layout: default
   <section class="section">
     <h2 class="section__heading">Selected Previous Research</h2>
     <p class="provisional-note">
-      [PLACEHOLDER] Selected publications from the PI's earlier scientific
+      Selected publications from the Ariel Waisman's earlier scientific
       training, prior to establishing Waisman Lab.
     </p>
     {% for pub in previous_pubs %}
